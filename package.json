@@ -1,0 +1,39 @@
+{
+  "name": "avril",
+  "description": "avril framework",
+  "version": "0.0.6",
+  "author": {
+    "name": "Wang Zhenchuan",
+    "email": "w@yaryin.com"
+  },
+  "keywords": [
+	"layout support for express"
+	, "unlimited layout"
+	, "unlimited partial"
+  ],
+  "dependencies": {
+	"fs-extra":"0.3.2"
+  },
+  "devDependencies": {
+  },
+  "directories": {
+  },
+  "scripts": {
+  },
+  "main": "./index.js",
+  "engines": {
+    "node": ">= 0.4.0"
+  },
+  "repository": {
+  },
+  "_id": "avril@0.0.1",
+  "optionalDependencies": {},
+  "_engineSupported": true,
+  "_npmVersion": "1.1.16",
+  "_nodeVersion": "v0.6.15",
+  "_defaultsLoaded": true,
+  "dist": {
+    
+  },
+  "_from": "avril"
+}

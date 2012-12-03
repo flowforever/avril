@@ -1,4 +1,4 @@
-# avril
+# yaryin
 
 A scaffold framework to bring powerful support of layout and section for Express .
 Support most template engine of Express .
@@ -7,22 +7,22 @@ Support most template engine of Express .
 
 ## Installation
 	
-	npm install avril
-## Begin to use avril
+	npm install yaryin
+## Begin to use yaryin
 	var express = require('express');
 	var app = express();
 
-	var avril = require('avril');
+	var yaryin = require('yaryin');
 
-	avril.initRootDir(__dirname);
+	yaryin.initRootDir(__dirname);
 
-	avril.extend( avril.Mvc.mvcConfig , {
+	yaryin.extend( yaryin.Mvc.mvcConfig , {
 		
 	});
 
-	avril.initComponent('mvc', { app: app, viewEngine: require('jshtml') });
+	yaryin.initComponent('mvc', { app: app, viewEngine: require('jshtml') });
 
-	avril.extend(avril.getConfig('app') , process.env);
+	yaryin.extend(yaryin.getConfig('app') , process.env);
 
 	app.listen(appConfig.port);
 

@@ -1,9 +1,9 @@
-avril
+yaryin
 ======
 
-avril node mvc framework providers layout and partial support for application based on ExpressJs without concern about the Express version , and it's much more powerful than the orginal.
+yaryin node mvc framework providers layout and partial support for application based on ExpressJs without concern about the Express version , and it's much more powerful than the orginal.
 
-# avril
+# yaryin
 
 A scaffold framework to bring powerful support of layout and section for Express .
 Support most template engine of Express .
@@ -12,16 +12,16 @@ Support most template engine of Express .
 
 ## Installation
 	
-	npm install avril
-## Begin to use avril
+	npm install yaryin
+## Begin to use yaryin
 	var express = require('express');
 	var app = express();
 
-	var avril = require('avril');
+	var yaryin = require('yaryin');
 
-	avril.initRootDir(__dirname);
+	yaryin.initRootDir(__dirname);
 
-	avril.extend(avril.mvc.Mvc.config, {
+	yaryin.extend(yaryin.mvc.Mvc.config, {
 		controller_dir_name: 'controllers',
 		view_dir_name: 'views',
 		area_dir_name: 'areas',
@@ -29,9 +29,9 @@ Support most template engine of Express .
 		viewExtension: '.cshtml'
 	});
 
-	avril.initComponent('mvc', { app: app, viewEngine: require('jshtml') });
+	yaryin.initComponent('mvc', { app: app, viewEngine: require('jshtml') });
 
-	avril.extend(avril.getConfig('app') , process.env);
+	yaryin.extend(yaryin.getConfig('app') , process.env);
 
 	app.listen(appConfig.port);
 

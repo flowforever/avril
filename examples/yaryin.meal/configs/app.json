@@ -1,0 +1,8 @@
+﻿{
+	version:new Date().toJSON().substring(0, 18).replace(/\:/g, '-').replace('.', '-')
+    , port:9301
+	, combine:true
+	, minifyJs:true
+	, minifyCss:true
+	, host:'http://yaryin.com'
+}

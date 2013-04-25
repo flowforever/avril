@@ -1,0 +1,27 @@
+﻿{
+	'main':{ 
+	attrs : {
+		
+	}
+	, items:[
+		'/scripts/jquery-1.8.2.js',
+		'/scripts/jquery.validate.js',
+		'/scripts/jquery.form.min.js',
+		'/third-party/jquery.ui/jquery-ui-1.9.1.custom.js',
+
+		'/third-party/bxslider/jquery.bxslider.js',
+
+		'/scripts/underscore.js',
+		'/scripts/backbone.js',
+
+		'/third-party/bootstrap/js/bootstrap.js',
+
+		'/scripts/common/yaryin.js',
+		'/scripts/common/yaryin.ui.js',
+		'/scripts/common/yaryin.tools.js',
+		'/scripts/common/yaryin.validator.js',
+
+		'/scripts/app/app.main.js',
+		'/scripts/app/app.events.js'
+	]}
+}

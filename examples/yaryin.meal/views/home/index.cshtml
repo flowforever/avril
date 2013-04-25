@@ -1,0 +1,91 @@
+﻿<!--layout(_frontLayout)-->
+<div class="row">
+    <ul class="bxslider">
+        <li>
+            <img src="/images/730_200/hill_trees.jpg" /></li>
+        <li>
+            <img src="/images/730_200/me_trees.jpg" /></li>
+        <li>
+            <img src="/images/730_200/houses.jpg" /></li>
+    </ul>
+</div>
+
+<div class="row">
+    @locals.render("_suggestShops")
+    <div class="tuan-catg-info clearfix">
+
+        <div class="sort float-left">
+            <div class="sort-content">
+                <span class="sort-default sort-a sort-current float-left">默认</span>
+                <a class="sort-number sort-a float-left" href="javascript:;" title="点击按购买人数降序排序">
+                    <span class="sort-text">人气</span>
+                    <span class="up-tip-un sort-tip">&nbsp;&nbsp;</span></a>
+                <a class="sort-number sort-a float-left" href="javascript:;" title="点击按购买人数降序排序">
+                    <span class="sort-text">销量</span>
+                    <span class="up-tip-un sort-tip">&nbsp;&nbsp;</span></a>
+                <a class="sort-price sort-a float-left" href="javascript:;" title="点击按价格升序排序"><span
+                    class="sort-text">价格</span><span class="down-tip-un sort-tip">&nbsp;&nbsp;</span></a>
+            </div>
+            <div class="sort-pagelist">
+                <span class="current-page">第&nbsp;&nbsp;<strong>1</strong>&nbsp;&nbsp;页</span><span
+                    class="page-pre-disable page-tip"></span><a href="javascript:;" class="page-next page-tip"></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="tuan-goods div-984 float-left" id="main-center" data-tmpl-name="meal-item-list">
+        <div id="tuan_statistics_1_all">
+            <div class="goods-content" id="content">
+                <div class="goods">
+                    @if (locals.model.items){
+                        for (var i = 0; i < locals.model.items.length; i++)
+                        {
+                        <div id="tuan_statistics_1_1" class="wt-good-item @(i%3 == 2 ? "wt-good-last":'')">
+                            <div class="good-item-meta clearfix">
+                                <div class="mbm good-img">
+                                    <a href="javascript:;"
+                                        target="_blank">
+                                        <img height="190" width="290" alt="【万达广场】仅49元，享价值98元炖炖香客家私房菜双人套餐！客家粉蒸肉或梅菜扣肉（2选1）+功夫竹笋肉丝或春笋炆酸菜（2选1）+紫菜海蛎木桶饭或客家手工米粉（2选1）+芙蓉蒸水蛋！原生态的养生炖品，在客家美食中感受养生之道！另有3-5人餐可选！[自助,自助餐,烤肉]"
+                                            src="http://tuanimg6.baidu.com/data/2_ef671f4a01de48b6d65c7e0b1a6a3520"></a><div
+                                                class="countdown">
+                                                <!--[if lt IE 9]><div class="countdown-bg"></div><![endif]-->
+                                                <span class="fcw plm" style="position: relative">33天前开始，还<a id="tuan-time-1" mon="#outsite=1&amp;content=pic"
+                                                    href="http://xiamen.manzuo.com/44169845?campaign=hao123&amp;tn=baidutuan_tg&amp;baiduid=dd83290069aa2ce94939c9702dea902b"
+                                                    target="_blank"><b>25</b>天<b>2</b>小时<b>34</b>分</a>结束</span>
+                                            </div>
+                                </div>
+                                <div class="good-title">
+                                    <a class="sitename" mon="#content=sitename" href="/midpage/site/14/xiamen"
+                                        target="_blank">满座网</a><a class="fcb" mon="#outsite=1&amp;content=title" href="http://xiamen.manzuo.com/44169845?campaign=hao123&amp;tn=baidutuan_tg&amp;baiduid=dd83290069aa2ce94939c9702dea902b"
+                                            target="_blank" title="【万达广场】仅49元，享价值98元炖炖香客家私房菜双人套餐！客家粉蒸肉或梅菜扣肉（2选1）+功夫竹笋肉丝或春笋炆酸菜（2选1）+紫菜海蛎木桶饭或客家手工米粉（2选1）+芙蓉蒸水蛋！原生态的养生炖品，在客家美食中感受养生之道！另有3-5人餐可选！[自助,自助餐,烤肉]">【万达广场】仅49元，享价值98元炖炖香客家私房菜双人套餐！客家粉蒸肉或梅菜扣肉（2选1）+功夫竹笋肉丝或春笋炆酸菜（2选1）+紫菜海蛎木桶饭或客家手工米粉（2选1）+芙蓉蒸水蛋！原生态的养生炖品，在客家美食中感受养生之道！另有3-5人餐可选！[自助,自助餐,烤肉]</a>
+                                </div>
+                                <a class="float-right link-btn" href="http://xiamen.manzuo.com/44169845?campaign=hao123&amp;tn=baidutuan_tg&amp;baiduid=dd83290069aa2ce94939c9702dea902b"
+                                    target="_blank" mon="#outsite=1&amp;content=gosite">去看看</a><span class="price"><small
+                                        class="f16 mrs">¥</small>49</span>
+                            </div>
+                            <div class="good-item-info">
+                                <p class="mbs fcg clearfix">
+                                    <span class="float-right">227&nbsp;人购买</span><span>原价：<b><del>¥97</del></b><span
+                                        class="mlm fcr">5.05折</span></span>
+                                </p>
+                                <p class="mbs clearfix">
+                                    <a class="float-right fcg cps" mon="#outsite=1&amp;content=yzticon"
+                                        href="http://xiamen.manzuo.com/44169845?campaign=hao123&amp;tn=baidutuan_tg&amp;baiduid=dd83290069aa2ce94939c9702dea902b"
+                                        title="该网站支持百度帐号一站通登录" target="_blank"><i class="cps-ico"></i></a><a class="float-right mrm favor"
+                                            href="javascript:;" id="14797054"><i class="favor-ico"></i>收藏</a><span style="visibility: hidden"
+                                                class="fcg">商圈：</span>
+                                </p>
+                            </div>
+                            <div class="msg clearfix">
+                                <a class="close-ico" href="javscript:;"></a><b>收藏成功!</b>&nbsp;查看<a
+                                    class="go-collectMan" href="/custom/collectMan" target="_blank">我的收藏</a>
+                            </div>
+                        </div>
+                        }
+                    }
+                    <div class="clear"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

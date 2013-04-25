@@ -1,0 +1,14 @@
+{
+	topMenu:{
+		defaults:[
+			{text:"Dashboard",url:"/dashboard"},
+			{text:"Orders",url:"/dashboard/order"},		
+			{text:"Meals",url:"/dashboard/dish"},		
+		]
+	}
+	, siderbar:{
+		'dashboard_setting':[
+			{ text:'My profile',url:'/dashboard/setting' }
+		]
+	}
+}

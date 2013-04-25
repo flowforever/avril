@@ -1,0 +1,41 @@
+{
+    "group": {
+        "/dashboard": {
+            "Yaryin meal": "",
+            "Dashboard": "",
+            "Orders": "",
+            "Meals": "",
+            "Login": "",
+            "Search": "",
+            "Bad network , do you want to reload this page .": ""
+        },
+        "/account/login": {
+            "Login": "",
+            "Register": "",
+            "Email address": "",
+            "required": "",
+            "Password": "",
+            "Sign in": "",
+            "Email Address": "",
+            "Comfirm password": "",
+            "Phone Number": ""
+        }
+    },
+    "keyValues": {
+        "Yaryin meal": "",
+        "Dashboard": "",
+        "Orders": "",
+        "Meals": "",
+        "Login": "",
+        "Search": "",
+        "Bad network , do you want to reload this page .": "",
+        "Register": "",
+        "Email address": "",
+        "required": "",
+        "Password": "",
+        "Sign in": "",
+        "Email Address": "",
+        "Comfirm password": "",
+        "Phone Number": ""
+    }
+}

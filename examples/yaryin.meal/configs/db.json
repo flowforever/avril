@@ -1,0 +1,3 @@
+﻿{
+    mongo:'mongodb://localhost/avril_meal'
+}

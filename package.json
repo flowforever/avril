@@ -14,7 +14,7 @@
   "dependencies": {
 	"fs-extra":"0.3.2"
 	, "clean-css":"*"
-	, "uglify-js":"*"
+	, "uglify-js":"1.2.6"
 	, "mongoose":"*"
 	, "redis":"*"
 	, "wind":"*"

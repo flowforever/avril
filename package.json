@@ -1,7 +1,7 @@
 {
   "name": "avril",
   "description": "avril framework",
-  "version": "0.0.18",
+  "version": "0.0.19",
   "author": {
     "name": "Wang Zhenchuan",
     "email": "w@yaryin.com"
@@ -20,6 +20,7 @@
 	, "wind":"*"
 	, "jshashes":"*"
 	, "less":"*"
+	, "jshtml":"0.2.3"
   },
   "devDependencies": {
   },

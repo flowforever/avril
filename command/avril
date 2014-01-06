@@ -1,0 +1,23 @@
+﻿#! /usr/bin/env node
+
+var helpMsg = '\r\n\
+    input\r\n\
+    avril create projectName //to create an avril project\r\n\
+';
+
+var userArgs = process.argv.slice(2);
+
+if(userArgs.length){
+   var commandName = userArgs[0];
+   try{
+	    var command = require('./cmds/'+commandName) ;
+        command.exec.apply(command,process.argv.slice(3));
+    }catch(E){
+	    console.log(__dirname);
+	    console.log(E);
+	    console.log(helpMsg);
+    }
+   
+}else{
+    console.log(helpMsg);	
+}

@@ -1,7 +1,8 @@
 {
   "name": "avril",
   "description": "avril framework",
-  "version": "0.0.20",
+  "version": "0.0.44",
+   "homepage": "https://github.com/flowforever/avril",
   "author": {
     "name": "Wang Zhenchuan",
     "email": "w@yaryin.com"
@@ -12,7 +13,7 @@
 	, "unlimited partial"
   ],
   "dependencies": {
-	"fs-extra":"0.3.2"
+	"fs-extra":"*"
 	, "clean-css":"*"
 	, "uglify-js":"1.2.6"
 	, "mongoose":"3.4.0"
@@ -21,6 +22,8 @@
 	, "jshashes":"*"
 	, "less":"*"
 	, "jshtml":"0.2.3"
+	, "mocha":"*"
+	, "adm-zip":"*"
   },
   "devDependencies": {
   },
@@ -32,7 +35,16 @@
   "engines": {
     "node": ">= 0.4.0"
   },
-  "repository": {
+   "repository": {
+    "type": "git",
+    "url": "git://github.com/JackFranklin/filesearch.git"
+  },
+  "bugs": {
+    "url": "https://github.com/flowforever/avril/issues"
+  },
+  "preferGlobal": "true",
+  "bin": {
+    "avril" : "command/avril"
   },
   "_id": "avril@0.0.1",
   "optionalDependencies": {},

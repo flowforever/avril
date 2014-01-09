@@ -14,7 +14,7 @@ Support most template engine of Express .
 	
 	npm install avril
 ## Home Page
-	[http://avril-js.com](http://avril-js.com)
+	*<a href="http://avril-js.com">http://avril-js.com</a>
 	
 ## Begin to use avril
 	var express = require('express');

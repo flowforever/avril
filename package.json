@@ -1,7 +1,7 @@
 {
   "name": "avril",
   "description": "avril framework",
-  "version": "0.0.54",
+  "version": "0.0.55",
    "homepage": "http://avril-js.com",
   "author": {
     "name": "Wang Zhenchuan",
@@ -11,6 +11,9 @@
 	"layout support for express"
 	, "unlimited layout"
 	, "unlimited partial"
+	, "Asp.net MVC"
+	, "areas"
+	, "razor"
   ],
   "dependencies": {
 	"fs-extra":"*"

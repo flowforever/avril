@@ -1,8 +1,8 @@
 {
   "name": "avril",
   "description": "avril framework",
-  "version": "0.0.49",
-   "homepage": "https://github.com/flowforever/avril",
+  "version": "0.0.51",
+   "homepage": "http://avril-js.com",
   "author": {
     "name": "Wang Zhenchuan",
     "email": "w@yaryin.com"
@@ -37,7 +37,7 @@
   },
    "repository": {
     "type": "git",
-    "url": "git://github.com/JackFranklin/filesearch.git"
+    "url": "https://github.com/flowforever/avril.git"
   },
   "bugs": {
     "url": "https://github.com/flowforever/avril/issues"

@@ -1,7 +1,7 @@
 {
   "name": "avril",
-  "description": "avril framework",
-  "version": "0.0.55",
+  "description": "avril framework is a web framework based on Express, it provides unlimited layout and partial support for web, make the coding experience feel like asp.net mvc, provides globallization and resource( css and js) minify.",
+  "version": "0.0.65",
    "homepage": "http://avril-js.com",
   "author": {
     "name": "Wang Zhenchuan",
@@ -24,15 +24,16 @@
 	, "wind":"*"
 	, "jshashes":"*"
 	, "less":"*"
-	, "jshtml":"0.2.3"
-	, "mocha":"*"
+	, "jshtml":"0.2.3"	
 	, "adm-zip":"*"
   },
   "devDependencies": {
+     "mocha":"*"
   },
   "directories": {
   },
   "scripts": {
+    "test": "make test"
   },
   "main": "./index.js",
   "engines": {
@@ -58,5 +59,6 @@
   "dist": {
     
   },
-  "_from": "avril"
+  "_from": "avril",
+  "serverTemplateUrl":"http://avril-js.com/templates/server.zip"
 }

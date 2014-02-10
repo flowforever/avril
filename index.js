@@ -1,5 +1,7 @@
 ﻿var avril = require('./lib/avril');
 
+avril.config = require('./package.json');
+
 avril.cache = require('./lib/avril.cache');
 
 avril.mvc = require('./lib/avril.mvc');

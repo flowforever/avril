@@ -1,37 +1,35 @@
 {
   "name": "avril",
   "description": "avril framework is a web framework based on Express, it provides unlimited layout and partial support for web, make the coding experience feel like asp.net mvc, provides globallization and resource( css and js) minify.",
-  "version": "0.0.68",
-   "homepage": "http://avril-js.com",
+  "version": "0.0.69",
+  "homepage": "http://avril-js.com",
   "author": {
     "name": "Wang Zhenchuan",
     "email": "w@yaryin.com"
   },
   "keywords": [
-	"layout support for express"
-	, "unlimited layout"
-	, "unlimited partial"
-	, "Asp.net MVC"
-	, "areas"
-	, "razor"
+    "layout support for express",
+    "unlimited layout",
+    "unlimited partial",
+    "Asp.net MVC",
+    "areas",
+    "razor"
   ],
   "dependencies": {
-	"fs-extra":"*"
-	, "clean-css":"*"
-	, "uglify-js":"1.2.6"
-	, "mongoose":"3.4.0"
-	, "redis":"*"
-	, "wind":"*"
-	, "jshashes":"*"
-	, "less":"*"
-	, "jshtml":"0.2.3"	
-	, "adm-zip":"*"
+    "fs-extra": "*",
+    "clean-css": "*",
+    "uglify-js": "1.2.6",
+    "mongoose": "3.8.0",
+    "mongoose-pagination": "1.0.0",
+    "redis": "*",
+    "wind": "*",
+    "jshashes": "*",
+    "adm-zip": "*"
   },
   "devDependencies": {
-     "mocha":"*"
+    "mocha": "*"
   },
-  "directories": {
-  },
+  "directories": {},
   "scripts": {
     "test": "make test"
   },
@@ -39,7 +37,7 @@
   "engines": {
     "node": ">= 0.4.0"
   },
-   "repository": {
+  "repository": {
     "type": "git",
     "url": "https://github.com/flowforever/avril.git"
   },
@@ -48,17 +46,17 @@
   },
   "preferGlobal": "true",
   "bin": {
-    "avril" : "command/avril"
+    "avril": "command/avril"
   },
-  "_id": "avril@0.0.1",
+  "_id": "avril@0.0.69",
   "optionalDependencies": {},
   "_engineSupported": true,
   "_npmVersion": "1.1.16",
   "_nodeVersion": "v0.6.15",
   "_defaultsLoaded": true,
-  "dist": {
-    
-  },
-  "_from": "avril",
-  "serverTemplateUrl":"http://avril-js.com/templates/server.zip"
+  "dist": {},
+  "_from": "avril@*",
+  "serverTemplateUrl": "http://avril-js.com/templates/server.zip",
+  "readme": "# avril\r\n\r\nA scaffold framework to bring powerful support of layout and section for Express .\r\nSupport most template engine of Express .\r\n\r\n\r\n\r\n## Installation\r\n\t\r\n\tnpm install avril\r\n## Begin to use avril\r\n\tvar express = require('express');\r\n\tvar app = express();\r\n\r\n\tvar avril = require('avril');\r\n\r\n\tavril.initRootDir(__dirname);\r\n\r\n\tavril.extend( avril.Mvc.mvcConfig , {\r\n\t\t\r\n\t});\r\n\r\n\tavril.initComponent('mvc', { app: app, viewEngine: require('jshtml') });\r\n\r\n\tavril.extend(avril.getConfig('app') , process.env);\r\n\r\n\tapp.listen(appConfig.port);\r\n\r\n## Example\r\n\tuse layout \r\n\tyou just need to add <!--layout(layoutName)--> at the front of your view .\r\n\tsuch as \r\n\t\t<!--layoutName-->\r\n\r\n\t",
+  "readmeFilename": "readme.markdown"
 }

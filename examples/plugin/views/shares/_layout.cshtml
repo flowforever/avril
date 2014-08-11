@@ -1,0 +1,15 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@(locals.title || "Avril framework sample".localize(locals.helper))</title>
+    @locals.render("_begin")
+</head>
+<body>
+	<a href="https://github.com/flowforever/avril"><img style="position: absolute; top: 0; left: 0; border: 0;z-index:99999" src="//s3.amazonaws.com/github/ribbons/forkme_left_white_ffffff.png" alt="Fork me on GitHub"></a>
+    @locals.render("_mainMenu")
+    <!--body()-->
+    @locals.render("_end")
+</body>
+</html>

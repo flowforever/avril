@@ -1,0 +1,52 @@
+﻿<!--layout(_layout)-->
+<div class="container">
+
+    <plugins mode="server" items="[pluginName1,pluginName2]">
+        <!-- mode = "server/client"-->
+        <!-- items = "plugin-config/config.json" (array json: [ name1,name2, { name3: true } , {name4:false} ])-->
+        <!-- items = "@local.items"  (compiled as [name1,name2])-->
+    </plugins>
+
+    <!--after compile-->
+    <!--  server mode: -->
+
+        <!--pluginsStart(name)-->
+            <!--pluginStart(name)-->
+                <div> the plugin content here </div>
+            <!--pluginEnd(name)-->
+        <!--pluginsEnd(name)-->
+
+
+
+    <!--end server mode-->
+
+
+
+
+
+
+
+
+    <!-- client mode :-->
+
+        <!--pluginsStart(name)-->
+            <!--pluginStart(name)-->
+            <!--pluginEnd(name)-->
+        <!--pluginsEnd(name)-->
+
+
+    <!-- end client mode-->
+
+
+
+    <!-- Main component for a primary marketing message or call to action -->
+    <div class="jumbotron">
+        <h1>@("Welcome to use avril framework".localize(locals.helper))</h1>
+        <p>
+            @("Avril framework is based on exrpess , and it's very awesome.".localize(locals.helper))
+        </p>
+        <p>
+            <a class="btn btn-lg btn-primary" href="/doc" role="button">@("View navbar docs »".localize(locals.helper))</a>
+        </p>
+    </div>
+</div>

@@ -1,0 +1,36 @@
+<div class="btn-group" style="margin: 9px 0 5px;">
+  <button class="btn btn-large btn-info"><i class="icon-arrow-left"></i> @("Back".localize(locals.helper))</button>
+  <button class="btn btn-large"><i class="icon-plus-sign"></i> @("Create".localize(locals.helper))</button>
+  <button class="btn btn-large  btn-danger"><i class="icon-minus-sign"></i> @("Delete".localize(locals.helper))</button>
+</div>
+<table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+      	<th class="checkbox-column"><input type="checkbox"/>      	</th>
+      	@for(var i=0;i<locals.fields.length;i++){
+      		<th>@locals.fields[i]</th>
+      	}
+      </tr>
+    </thead>
+    <tbody>
+    	@for(var j=0;j<locals.items.length;j++){
+      	  <tr>
+      	  	<td class="checkbox-column"><input type="checkbox" name="id" value="@locals.items[j][locals.key||'id']"/></td>
+      	  	@for(var i=0;i<locals.fields.length;i++){
+	      		<td>@locals.items[j][locals.fields[i]]</td>
+	      	}
+	      </tr>
+      	}
+    </tbody>
+ </table>
+<div class="pagination pagination-large">
+  <ul>
+    <li><a href="#">«</a></li>
+    <li><a href="#">1</a></li>
+    <li><a href="#">2</a></li>
+    <li><a href="#">3</a></li>
+    <li><a href="#">4</a></li>
+    <li><a href="#">5</a></li>
+    <li><a href="#">»</a></li>
+  </ul>
+</div>

@@ -1,0 +1,111 @@
+﻿{
+	'base':{
+		attrs : {
+		
+		}
+		, version: '0.0.24'
+		, items:[
+			'/scripts/lib/jquery-1.8.2.js',
+			'/scripts/lib/jquery.validate.js',
+			'/scripts/lib/additional-methods.js',
+			'/scripts/lib/jquery.json-2.2.js',
+			'/scripts/lib/jquery.form.min.js',
+			'/third-party/jquery.ui/jquery-ui-1.9.1.custom.js',
+			'/scripts/lib/jquery.ui.touch-punch.js',
+			'/scripts/i18n/datepicker/jquery.ui.datepicker-zh-CN.js',
+			
+			'/third-party/bootstrap/js/bootstrap.js',
+			'/scripts/lib/chosen.jquery.min.js',
+
+			'/scripts/lib/moment.js',
+			'/scripts/lib/langs.min.js',
+
+			'/scripts/lib/jquery.scrollTo-min.js',
+		]
+	}
+	
+	, 'avril': {
+		attrs:{
+		}
+		, copyTo:[
+			'/third-party/avril-front/bin',
+		]
+		, version: '0.0.24'
+		, items:[
+			'/third-party/avril-front/extension.js',
+			'/third-party/avril-front/avril.js',
+			'/third-party/avril-front/avril.ui.js',
+			'/third-party/avril-front/avril.tools.js',
+			'/third-party/avril-front/avril.validator.js',	
+		]
+	}
+
+	, 'avril-front-framework': {
+		attrs:{
+		}
+		, copyTo:[
+			'/third-party/avril-front/bin',
+		]
+		, version: '0.0.24'
+		, items:[
+			'/third-party/avril-front/extension.js',
+			'/third-party/avril-front/avril.js',
+			'/third-party/avril-front/avril.ui.js',
+			'/third-party/avril-front/avril.tools.js',
+			'/third-party/avril-front/avril.validator.js',	
+			'/third-party/avril-front/avril.mvc.js',	
+			'/third-party/avril-front/avril.mvc.viewHelper.js',	
+		]
+	}
+	
+	, 'avril-front-inclue-ko-backbone': {
+		attrs:{
+		}
+		, copyTo:[
+			'/third-party/avril-front/bin',
+		]
+		, version: '0.0.24'
+		, items:[
+			'/scripts/lib/underscore.js',
+			'/scripts/lib/backbone.js',
+			'/scripts/lib/knockout-2.2.1.debug.js',
+
+			'/third-party/avril-front/extension.js',
+			'/third-party/avril-front/avril.js',
+			'/third-party/avril-front/avril.ui.js',
+			'/third-party/avril-front/avril.tools.js',
+			'/third-party/avril-front/avril.validator.js',	
+			'/third-party/avril-front/avril.mvc.js',	
+			'/third-party/avril-front/avril.mvc.viewHelper.js',	
+		]
+	}
+	, 'backbone-ko-base':{
+		attrs : {
+			'data-reload':"!window.Backbone || !window.ko"
+		}
+		,  version: '0.0.24'
+		, items:[
+			'/scripts/lib/underscore.js',
+			'/scripts/lib/backbone.js',
+			'/scripts/lib/knockout-2.2.1.debug.js',
+			
+		]
+	}
+	, 'yaryin-mvc':{
+		attrs : {
+			
+		}
+		, items:[
+			'/scripts/yaryin.mvc/app-front.js',
+		]
+	}	
+	, 'lt-ie9':{
+		attrs : {
+			
+		}
+		, items:[
+			'/third-party/lt-ie9/html5shiv.js',
+			'/third-party/lt-ie9/respond.min.js',
+		]
+	}	
+}

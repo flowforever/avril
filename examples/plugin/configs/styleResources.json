@@ -1,0 +1,19 @@
+﻿{
+	'base':{ 
+		attrs : {
+		
+		}
+		, items: [
+			'/third-party/avril-front/css/avril.ui.css',
+			'/third-party/bootstrap/css/bootstrap.css',
+		]
+	}
+	, 'main':{ 
+		attrs : {
+		
+		}
+		, items: [
+			'/styles/app/style.css',
+		]
+	}
+}

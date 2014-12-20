@@ -1,0 +1,22 @@
+﻿{
+  "name": "AvrilProject",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Your description",
+  "main": "app.js",
+  "dependencies": {
+    "avril": "*",
+    "nodemailer": "*",
+    "express": "*",
+	"jshtml":"0.2.3",
+	"mongoose":"3.4.0",
+	"jshashes":"",
+	"express":"3.0.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "0.0.1"
+  },
+  "author": "Your Name",
+  "license": "Your license"
+}

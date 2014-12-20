@@ -14,4 +14,8 @@ avril.auth = require('./lib/avril.auth');
 
 avril.mongoose = require('./lib/avril.mongoose');
 
+avril.simpleCounter = require('./lib/avril.simpleCounter');
+
+avril.simpleQueue = require('./lib/avril.simpleQueue');
+
 module.exports = avril;

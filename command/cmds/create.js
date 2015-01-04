@@ -1,8 +1,13 @@
 ﻿var fs = require('fs-extra')
 , path = require('path')
 , http = require('http');
+
+var avrilSimpleQueue = require('../../lib/avril.simpleQueue');
+
 var config = require('../../package.json');
-module.exports.exec = function (name,latest) {
+
+module.exports.exec = function (name, latest) {
+
     name = name || 'avril-project';
 
     var copyFrom = path.resolve(__dirname, '../templates/server.zip');
@@ -11,17 +16,13 @@ module.exports.exec = function (name,latest) {
 
         var file = fs.createWriteStream(copyFrom);
         
-        var pipeCount = 0;
-        
         file.on('finish',function(){
             console.log('saving file, '+copyFrom);
             file.close();
             checkAndCreate();
         });
 
-
-
-        http.get(config.serverTemplateUrl || 'http://avril-js.com/templates/server.zip',function(response){            
+        http.get(config.serverTemplateUrl || 'http://avril-js.com/templates/avril-template.zip', function(response){
             if(response.statusCode == 200){
                 console.log('please do not close window, downloading ... ');
                 response.pipe(file);
@@ -29,7 +30,8 @@ module.exports.exec = function (name,latest) {
                 console.log('Update local template file failed.');
                 checkAndCreate();
             }            
-        })
+        });
+
     }else{
         checkAndCreate();
     }

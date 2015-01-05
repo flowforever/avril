@@ -41,6 +41,56 @@ describe('avril.simpleQueue', function(){
         })
     });
 
+    describe('#data', function(done){
+        it('data1 should be data1', function(){
+            var q = avril.simpleQueue();
+            q.paralFunc(function(next){
+                setTimeout(function(){
+                    q.data('data1', 'data1');
+                    next();
+                },100);
+            });
+            q.paralFunc(function(next){
+                setTimeout(function(){
+                    q.data('data2', 'data2');
+                    next();
+                },140);
+            });
+            q.paralFunc(function(next){
+                setTimeout(function(){
+                    q.data('data3', 'data3');
+                    next();
+                },130);
+            });
+            q.func(function(){
+                assert(q.data('data1'), 'data1');
+                assert(Object.keys(q.data()).length , 3);
+            });
+        });
+    });
+
+    describe('#insertFunc', function(){
+        it('should executed correct', function(){
+            var q = avril.simpleQueue();
+            var counter = 0;
+            q.func(function(next, task) {
+                counter++;
+                q.insertFunc(task, function(){
+                    assert.equal(counter, 1);
+                    counter++;
+                });
+                q.insertFunc(task, function(){
+                    assert.equal(counter, 2);
+                    counter++;
+                });
+                next();
+            });
+            q.func(function(){
+                assert.equal(counter, 3);
+            });
+        });
+    });
+
     describe('#paralFunc #func', function(){
         this.timeout(5000);
         it('paralFunc should be fast', function(done) {

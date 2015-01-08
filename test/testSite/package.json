@@ -1,0 +1,27 @@
+{
+  "name": "testSite.avril-js.com",
+  "version": "0.0.0",
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+
+    "avril": "~0.0.87",
+    "express": "~3.0.5",
+    "fs-extra": "~0.8.1",
+    "jshashes": "~1.0.4",
+    "mongoose-pagination": "~1.0.0",
+    "moment": "~2.7.0",
+    "mongoose": "~3.4.0",
+    "commander": "^2.5.1"
+  },
+  "devDependencies": {},
+  "watch":{
+    "test": "*.js"
+  },
+  "scripts": {
+  },
+  "repository": {
+  },
+  "author": "",
+  "license": "ISC"
+}

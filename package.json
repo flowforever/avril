@@ -16,7 +16,7 @@
     "razor"
   ],
   "dependencies": {
-    "fs-extra": "0.8.1",
+    "fs-extra": "0.14.0",
     "clean-css": "1.0.1",
     "uglify-js": "1.2.6",
     "mongoose": "3.8.0",

@@ -6,13 +6,14 @@ var avril = require('../index');
 
 describe('avril.simpleQueue', function(){
     var ranTime = function(){
-        return parseInt(10 * Math.random())
+        return parseInt(5 * Math.random())
     };
     var readFile = function(path, callback){
         setTimeout(function(){
             callback(null, '123456789'.split('').join('\n'));
         },1)
     };
+
     var findById = function(id, callback) {
         setTimeout(function(){
             callback(null, {
@@ -92,7 +93,7 @@ describe('avril.simpleQueue', function(){
             var counter = 0;
             q.func(function(next, task) {
                 counter++;
-                q.insertFunc(task, function(){
+                q.insertFunc(function(){
                     assert.equal(counter, 1);
                     counter++;
                 });

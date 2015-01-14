@@ -15,10 +15,12 @@ describe('avril.simpleQueue', function(){
     };
 
     var findById = function(id, callback) {
+        var db = this.db || 'file';
         setTimeout(function(){
             callback(null, {
                 id: id
                 , name: 'user' + id
+                , db: db
             });
         }, ranTime());
     };
@@ -159,11 +161,11 @@ describe('avril.simpleQueue', function(){
         it('users[2].name === "user2"', function(done){
             var q = avril.simpleQueue();
 
-            q.$await(readFile, 'the/path/to/file.ext' , function(err, fileContent, arg){
+            q.$await( readFile, 'the/path/to/file.ext' , function(err, fileContent, arg){
                 q.data('ids', fileContent.split('\n'));
             });
 
-            q.$each(findById, q.$awaitData('ids'), function(err, user) {
+            q.$each({ db: 'sql' }, findById, q.$awaitData('ids'), function(err, user) {
 
                 q.ensure('users',[]);
 
@@ -185,6 +187,7 @@ describe('avril.simpleQueue', function(){
                 assert.equal(q.data('users')[2].name, 'user3');
                 assert.equal(q.data('users')[8].friends.length, 4);
                 assert.equal(q.data('users')[8].friends[0].names.length, 3);
+                assert.equal('sql', q.data('users')[0].db);
             });
 			
 			q.func(function(){done();});
@@ -202,7 +205,7 @@ describe('avril.simpleQueue', function(){
                 q.data('ids', fileContent.split('\n'));
             });
 
-            q.$paralEach(findById, q.$awaitData('ids'), function(err, user, arg) {
+            q.$paralEach({ db: 'mongodb' }, findById, q.$awaitData('ids'), function(err, user, arg) {
                 q.ensure('users',[]);
                 var id = arg[0];
                 q.data('users')[ q.data('ids').indexOf(id) ] = user;
@@ -221,6 +224,8 @@ describe('avril.simpleQueue', function(){
             q.func(function(){
                 assert.equal(q.id , this._pid);
                 assert.equal(q.data('users')[2].name, 'user3');
+                assert.equal(q.data().users[8].friends[0].names.length, 3);
+                assert.equal('mongodb', q.data().users[0].db);
             });
 
             q.func(function(){ done(); });

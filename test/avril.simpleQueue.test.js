@@ -5,6 +5,23 @@ var assert = require("assert");
 var avril = require('../index');
 
 describe('avril.simpleQueue', function(){
+    var ranTime = function(){
+        return parseInt(10 * Math.random())
+    };
+    var readFile = function(path, callback){
+        setTimeout(function(){
+            callback(null, '123456789'.split('').join('\n'));
+        },1)
+    };
+    var findById = function(id, callback) {
+        setTimeout(function(){
+            callback(null, {
+                id: id
+                , name: 'user' + id
+            });
+        }, ranTime());
+    };
+
     describe('#func', function(){
         it('should execute 3 times', function(){
             var q1 = avril.simpleQueue();
@@ -135,40 +152,79 @@ describe('avril.simpleQueue', function(){
         });
     });
 
-    describe('#$await', function(){
-        this.timeout(5000);
+    describe('#$await & $each', function(){
+        this.timeout(500000);
 
         it('users[2].name === "user2"', function(done){
             var q = avril.simpleQueue();
-            var readFile = function(path, callback){
-                setTimeout(function(){
-                    callback(null, '123456789'.split('').join('\n'));
-                },1)
-            };
-            var findById = function(id, callback) {
-                setTimeout(function(){
-                    callback(null, {
-                        id: id
-                        , name: 'user' + id
-                    });
-                },1);
-            };
 
-            q.$await(readFile, 'the/path/to/file.ext' , function(err, fileContent){
+            q.$await(readFile, 'the/path/to/file.ext' , function(err, fileContent, arg){
                 q.data('ids', fileContent.split('\n'));
             });
 
             q.$each(findById, q.$awaitData('ids'), function(err, user) {
+
                 q.ensure('users',[]);
+
                 q.data('users').push(user);
+
+                user.friends = [];
+
+                this.$each(findById, [ 11,12,13,14], function(err, friend) {
+                    user.friends.push(friend);
+                    friend.names = [];
+                    this.$each(findById, [31,32,33], function(e, name){
+                        friend.names.push(name);
+                    })
+                });
+
             });
 
             q.func(function(){
                 assert.equal(q.data('users')[2].name, 'user3');
+                assert.equal(q.data('users')[8].friends.length, 4);
+                assert.equal(q.data('users')[8].friends[0].names.length, 3);
             });
 			
 			q.func(function(){done();});
         });
 
-    })
+    });
+
+    describe('#$paralAwait & $paralEach', function(){
+        this.timeout(500000);
+
+        it('users[2].name === "user2"', function(done){
+            var q = avril.simpleQueue();
+
+            q.$paralAwait(readFile, 'the/path/to/file.ext' , function(err, fileContent){
+                q.data('ids', fileContent.split('\n'));
+            });
+
+            q.$paralEach(findById, q.$awaitData('ids'), function(err, user, arg) {
+                q.ensure('users',[]);
+                var id = arg[0];
+                q.data('users')[ q.data('ids').indexOf(id) ] = user;
+                user.friends = [];
+
+                this.$paralEach(findById, [ 11,12,13,14], function(err, friend) {
+                    //console.log('user:',user.id,friend.id);
+                    user.friends.push(friend);
+                    friend.names = [];
+                    this.$paralEach(findById, [31,32,33], function(e, name){
+                        friend.names.push(name);
+                    })
+                });
+            });
+
+            q.func(function(){
+                assert.equal(q.id , this._pid);
+                assert.equal(q.data('users')[2].name, 'user3');
+            });
+
+            q.func(function(){ done(); });
+        });
+
+    });
+
 });

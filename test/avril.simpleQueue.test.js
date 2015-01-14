@@ -155,8 +155,6 @@ describe('avril.simpleQueue', function(){
             };
 
             q.$await(readFile, 'the/path/to/file.ext' , function(err, fileContent){
-                console.log('$await call')
-                console.log(arguments)
                 q.data('ids', fileContent.split('\n'));
             });
 

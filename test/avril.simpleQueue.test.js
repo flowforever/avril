@@ -134,4 +134,41 @@ describe('avril.simpleQueue', function(){
             });
         });
     });
-})
+
+    describe('#$await', function(){
+        this.timeout(5000);
+
+        it('users[2].name === "user2"', function(done){
+            var q = avril.simpleQueue();
+            var readFile = function(path, callback){
+                setTimeout(function(){
+                    callback(null, '123456789'.split('').join('\n'));
+                },100)
+            };
+            var findById = function(id, callback) {
+                setTimeout(function(){
+                    callback(null, {
+                        id: id
+                        , name: 'user' + id
+                    });
+                },102);
+            };
+
+            q.$await(readFile, 'the/path/to/file.ext' , function(err, fileContent){
+                q.data('ids', fileContent.split('\n'));
+            });
+
+            q.$each(findById, q.$awaitData('ids'), function(err, user) {
+                q.ensure('users',[]);
+                q.data('users').push(user);
+            });
+
+            q.func(function(){
+                assert.equal(q.data('users')[2].name, 'user2');
+            });
+
+            q.func(done);
+        });
+
+    })
+});

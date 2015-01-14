@@ -143,7 +143,7 @@ describe('avril.simpleQueue', function(){
             var readFile = function(path, callback){
                 setTimeout(function(){
                     callback(null, '123456789'.split('').join('\n'));
-                },100)
+                },1)
             };
             var findById = function(id, callback) {
                 setTimeout(function(){
@@ -151,7 +151,7 @@ describe('avril.simpleQueue', function(){
                         id: id
                         , name: 'user' + id
                     });
-                },102);
+                },1);
             };
 
             q.$await(readFile, 'the/path/to/file.ext' , function(err, fileContent){
@@ -159,17 +159,15 @@ describe('avril.simpleQueue', function(){
             });
 
             q.$each(findById, q.$awaitData('ids'), function(err, user) {
-                console.log('each call')
-                console.log(arguments);
                 q.ensure('users',[]);
                 q.data('users').push(user);
             });
 
             q.func(function(){
-                assert.equal(q.data('users')[2].name, 'user2');
+                assert.equal(q.data('users')[2].name, 'user3');
             });
-
-            q.func(done);
+			
+			q.func(function(){done();});
         });
 
     })

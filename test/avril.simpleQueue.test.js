@@ -200,7 +200,7 @@ describe('avril.simpleQueue', function(){
 
         it('users[2].name === "user2"', function(done){
             var q = avril.simpleQueue();
-
+            
             q.$paralAwait(readFile, 'the/path/to/file.ext' , function(err, fileContent){
                 q.data('ids', fileContent.split('\n'));
             });
@@ -228,7 +228,16 @@ describe('avril.simpleQueue', function(){
                 assert.equal('mongodb', q.data().users[0].db);
             });
 
-            q.func(function(){ done(); });
+            var $userIds = q.$await(readFile, 'the/path.txt', function(err, fileContent){ return fileContent.split('\n') });
+
+            $userList = q.$each(findById, $userIds, function(err, user){ return user; });
+
+            q.func(function(){
+                assert.equal($userIds.result().length , 9);
+                assert.equal( $userList.realResult().length , 9 );
+                done();
+
+            });
         });
 
     });

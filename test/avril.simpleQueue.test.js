@@ -155,10 +155,14 @@ describe('avril.simpleQueue', function(){
             };
 
             q.$await(readFile, 'the/path/to/file.ext' , function(err, fileContent){
+                console.log('$await call')
+                console.log(arguments)
                 q.data('ids', fileContent.split('\n'));
             });
 
             q.$each(findById, q.$awaitData('ids'), function(err, user) {
+                console.log('each call')
+                console.log(arguments);
                 q.ensure('users',[]);
                 q.data('users').push(user);
             });

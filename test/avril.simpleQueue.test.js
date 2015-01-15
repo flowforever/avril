@@ -261,4 +261,112 @@ describe('avril.simpleQueue', function(){
 
     });
 
+    describe('#stop', function(){
+        this.timeout(500000);
+        it('should clear queue after stop', function(done){
+            var q = avril.simpleQueue('main');
+
+            q.func(function(next){
+                setTimeout(function(){
+                    next();
+                },100);
+            });
+
+            q.func(function(next){
+                setTimeout(function(){
+                    next();
+                },100);
+            });
+
+            q.func(function(next){
+                setTimeout(function(){
+                    next();
+                },100);
+            });
+
+            q.func(function(next){
+                setTimeout(function(){
+                    next();
+                },100);
+            });
+
+            setTimeout(function(){
+                assert.equal(q.length(), 4);
+            },90);
+
+            setTimeout(function(){
+                assert.equal(q.length(), 3);
+            },110);
+
+            setTimeout(function(){
+                q.stop();
+                assert.equal(q.length(), 0);
+            },120);
+
+            setTimeout(function(){ done(); },1000);
+        });
+
+    });
+
+    describe('#error, onError', function(){
+        this.timeout(50000);
+
+        it('should popup the error', function(done){
+            var q = avril.simpleQueue();
+
+            q.$await(readFile, 'filePath', function(err, file) {
+               this.error('error');
+            });
+
+            q.onError(function(){
+                assert.equal('error', q.error());
+                done();
+            });
+
+        });
+    });
+
+    describe('#$$await & $$each', function(){
+        it('user number should be 9', function(done){
+            var q = avril.simpleQueue();
+
+            var $fileContent = q.$$await(readFile, 'the/path.txt');
+
+            var $userIds = $fileContent.conver(function($org){
+                return $org.result().split('\n');
+            });
+
+            var $userList = q.$$each(findById, $userIds);
+
+            var $userListOfParal = q.$$paralEach(findById, $userIds);
+
+            var $userIdsFromUserList = $userList.conver(function($org){
+                return $org.result().map(function($u){
+                    return  $u.result().id ;
+                });
+            });
+
+            q.func(function(){
+
+                assert.equal($userIds.result().length , 9);
+
+                assert.equal($userIdsFromUserList.result().length , 9);
+
+                assert.equal( $userList.realResult().length , 9 );
+
+                assert.equal($userIdsFromUserList.result().length , 9);
+
+                assert.equal($userIdsFromUserList.result().length , 9);
+
+                assert.equal($userIds.result().length , 9);
+
+                assert.equal($userListOfParal.result().length , 9);
+
+                assert.equal($userListOfParal.result()[0].result().name , 'user1');
+
+                done();
+            });
+        })
+    })
+
 });

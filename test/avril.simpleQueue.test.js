@@ -366,7 +366,7 @@ describe('avril.simpleQueue', function(){
 
                 done();
             });
+
         })
     })
-
 });

@@ -230,14 +230,31 @@ describe('avril.simpleQueue', function(){
 
             var $userIds = q.$await(readFile, 'the/path.txt', function(err, fileContent){ return fileContent.split('\n') });
 
-            $userList = q.$each(findById, $userIds, function(err, user){ return user; });
+            var $userList = q.$each(findById, $userIds, function(err, user){ return user; });
+
+            var $userIdsFromUserList = $userList.conver(function($org){
+                return $org.result().map(function($u){ 
+                    return  $u.result().id ; 
+                });
+            });
 
             q.func(function(){
-                assert.equal($userIds.result().length , 9);
-                assert.equal( $userList.realResult().length , 9 );
-                done();
 
+                assert.equal($userIds.result().length , 9);
+                
+                assert.equal($userIdsFromUserList.result().length , 9);
+                
+                assert.equal( $userList.realResult().length , 9 );
+
+                assert.equal($userIdsFromUserList.result().length , 9);
+
+                assert.equal($userIdsFromUserList.result().length , 9);
+
+                assert.equal($userIds.result().length , 9);
+
+                done();
             });
+
         });
 
     });

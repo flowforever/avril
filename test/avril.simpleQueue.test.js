@@ -3,15 +3,11 @@
  */
 var assert = require("assert");
 var avril = require('../index');
+var fs = require('fs-extra');
 
 describe('avril.simpleQueue', function(){
     var ranTime = function(){
         return parseInt(5 * Math.random())
-    };
-    var readFile = function(path, callback){
-        setTimeout(function(){
-            callback(null, '123456789'.split('').join('\n'));
-        },1)
     };
 
     var findById = function(id, callback) {
@@ -162,7 +158,7 @@ describe('avril.simpleQueue', function(){
         it('users[2].name === "user2"', function(done){
             var q = avril.simpleQueue();
 
-            q.$await( readFile, 'the/path/to/file.ext' , function(err, fileContent, arg){
+            q.$await(fs, fs.readFile, './data/test.txt', 'utf8' , function(err, fileContent, arg){
                 q.data('ids', fileContent.split('\n'));
             });
 
@@ -202,7 +198,7 @@ describe('avril.simpleQueue', function(){
         it('users[2].name === "user2"', function(done){
             var q = avril.simpleQueue();
             
-            q.$paralAwait(readFile, 'the/path/to/file.ext' , function(err, fileContent){
+            q.$paralAwait( fs.readFile, './data/test.txt', 'utf8', function(err, fileContent){
                 q.data('ids', fileContent.split('\n'));
             });
 
@@ -229,7 +225,7 @@ describe('avril.simpleQueue', function(){
                 assert.equal('mongodb', q.data().users[0].db);
             });
 
-            var $userIds = q.$await(readFile, 'the/path.txt', function(err, fileContent){ return fileContent.split('\n') });
+            var $userIds = q.$await( fs.readFile, './data/test.txt', 'utf8', function(err, fileContent){ return fileContent.split('\n') });
 
             var $userList = q.$each(findById, $userIds, function(err, user){ return user; });
 
@@ -314,7 +310,7 @@ describe('avril.simpleQueue', function(){
         it('should popup the error', function(done){
             var q = avril.simpleQueue();
 
-            q.$await(readFile, 'filePath', function(err, file) {
+            q.$await(fs, fs.readFile, './data/test.txt', 'utf8', function(err, file) {
                this.error('error');
             });
 
@@ -330,11 +326,19 @@ describe('avril.simpleQueue', function(){
         it('user number should be 9', function(done){
             var q = avril.simpleQueue();
 
-            var $fileContent = q.$$await(readFile, 'the/path.txt');
+            var $fileContent = q.$$await( fs.readFile, './data/test.txt', 'utf8');
 
             var $userIds = $fileContent.conver(function($org){
                 return $org.result().split('\n');
             });
+
+            var $userJsonList = $userIds.conver(function($org){
+                return $org.result().map(function(id){
+                    return ['./data/json/'+id+'.json', 'utf8'];
+                });
+            });
+
+            var $jsonFiles = q.$$paralEach(fs.readFile, $userJsonList );
 
             var $userList = q.$$each(findById, $userIds);
 
@@ -347,6 +351,10 @@ describe('avril.simpleQueue', function(){
             });
 
             q.func(function(){
+
+                assert.equal($jsonFiles.result().length, 9);
+
+                assert.equal($jsonFiles.result().filter(function($file){ console.log($file.result()); return  $file.result();  }).length, 9);
 
                 assert.equal($userIds.result().length , 9);
 

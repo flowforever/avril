@@ -24,7 +24,8 @@
     "wind": "0.7.3",
     "jshashes": "1.0.4",
     "adm-zip": "0.4.4",
-    "2kenizer": "0.0.7"
+    "2kenizer": "0.0.7",
+    "avril.queue": "*"
   },
   "devDependencies": {
     "mocha": "*"

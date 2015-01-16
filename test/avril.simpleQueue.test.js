@@ -334,11 +334,11 @@ describe('avril.simpleQueue', function(){
 
             var $userJsonList = $userIds.conver(function($org){
                 return $org.result().map(function(id){
-                    return ['./data/json/'+id+'.json', 'utf8'];
+                    return './data/json/'+id+'.json';
                 });
             });
 
-            var $jsonFiles = q.$$paralEach(fs.readFile, $userJsonList );
+            var $jsonFiles = q.$$paralEach(fs.readJson, $userJsonList);
 
             var $userList = q.$$each(findById, $userIds);
 
@@ -350,11 +350,15 @@ describe('avril.simpleQueue', function(){
                 });
             });
 
+            var $fileContentParalAwait = q.$$paralAwait(fs.readJson, './data/json/1.json');
+
             q.func(function(){
+
+                assert.equal($fileContentParalAwait.result().name , 'user1');
 
                 assert.equal($jsonFiles.result().length, 9);
 
-                assert.equal($jsonFiles.result().filter(function($file){ console.log($file.result()); return  $file.result();  }).length, 9);
+                assert.equal($jsonFiles.result().filter(function($file){ return  $file.result();  }).length, 4);
 
                 assert.equal($userIds.result().length , 9);
 

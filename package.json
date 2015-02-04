@@ -1,7 +1,7 @@
 {
   "name": "avril",
   "description": "avril framework is a web framework based on Express, it provides unlimited layout and partial support for web, make the coding experience feel like asp.net mvc, provides globallization and resource( css and js) minify.",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "homepage": "http://avril-js.com",
   "author": {
     "name": "Wang Zhenchuan",

@@ -18,6 +18,4 @@ avril.simpleCounter = require('avril.queue').simpleCounter;
 
 avril.simpleQueue = require('avril.queue');
 
-avril.versionedAPI = require('./lib/avril.versionedAPI');
-
 module.exports = avril;
